@@ -1,0 +1,12 @@
+Yprim of active circuit element: Reactor.load1ground
+
+
+G matrix (conductance), S
+
+         0.01 
+        -0.01          0.01 
+
+jB matrix (Susceptance), S
+
+            0 
+            0             0 

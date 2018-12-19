@@ -1,0 +1,756 @@
+// Author Paulo M. De Oliveira pm.deoliveiradejes@uniandes.edu.co March 15, 2018
+! Kersting NEV Test system
+! n=1 SHORT-CIRCUIT ANALYSIS
+! Full NEV approach (considering tower footings)
+clear
+New circuit.SOURCE_1    bus1=1.1  bus2=1.4 basekV=66.39528 pu=1 angle=0  Z1=[.000000200, 8.73333]   phase=1
+New Vsource.SOURCE_2 bus1=1.2  bus2=1.4 basekV=66.39528 pu=1 angle=-120 Z1=[.000000200, 8.73333]   phase=1
+New Vsource.SOURCE_3 bus1=1.3 bus2=1.4 basekV=66.39528 pu=1 angle=120 Z1=[.000000200, 8.73333]  phase=1
+set earthmodel=carson  
+! **** DEFINE WIRE DATA line 115
+new wiredata.conductor Runits=mi Rac=0.306 GMRunits=ft GMRac=0.0244  
+new wiredata.neutral   Runits=mi Rac=7.71 GMRunits=ft GMRac=0.000183 
+! **** DEFINE LINE GEOMETRY line 115
+new linegeometry.4wire nconds=4 nphases=3 reduce=no 
+~ cond=1 wire=conductor units=ft x=-6   h=44.21 
+~ cond=2 wire=conductor units=ft x=+6  h=40 
+~ cond=3 wire=conductor units=ft x=+6    h=48.17 
+~ cond=4 wire=neutral     units=ft x=0.75    h=57.91 
+! ****115 KV LINE!
+new line.line1 geometry=4wire length=0.1 units=mi bus1=1.1.2.3.4 bus2=2.1.2.3.4 Rho=265
+new line.line2 geometry=4wire length=0.1 units=mi bus1=2.1.2.3.4 bus2=3.1.2.3.4 Rho=265
+new line.line3 geometry=4wire length=0.1 units=mi bus1=3.1.2.3.4 bus2=4.1.2.3.4 Rho=265
+new line.line4 geometry=4wire length=0.1 units=mi bus1=4.1.2.3.4 bus2=5.1.2.3.4 Rho=265
+new line.line5 geometry=4wire length=0.1 units=mi bus1=5.1.2.3.4 bus2=6.1.2.3.4 Rho=265
+new line.line6 geometry=4wire length=0.1 units=mi bus1=6.1.2.3.4 bus2=7.1.2.3.4 Rho=265
+new line.line7 geometry=4wire length=0.1 units=mi bus1=7.1.2.3.4 bus2=8.1.2.3.4 Rho=265
+new line.line8 geometry=4wire length=0.1 units=mi bus1=8.1.2.3.4 bus2=9.1.2.3.4 Rho=265
+new line.line9 geometry=4wire length=0.1 units=mi bus1=9.1.2.3.4 bus2=10.1.2.3.4 Rho=265
+new line.line10 geometry=4wire length=0.1 units=mi bus1=10.1.2.3.4 bus2=11.1.2.3.4 Rho=265
+new line.line11 geometry=4wire length=0.1 units=mi bus1=11.1.2.3.4 bus2=12.1.2.3.4 Rho=265
+new line.line12 geometry=4wire length=0.1 units=mi bus1=12.1.2.3.4 bus2=13.1.2.3.4 Rho=265
+new line.line13 geometry=4wire length=0.1 units=mi bus1=13.1.2.3.4 bus2=14.1.2.3.4 Rho=265
+new line.line14 geometry=4wire length=0.1 units=mi bus1=14.1.2.3.4 bus2=15.1.2.3.4 Rho=265
+new line.line15 geometry=4wire length=0.1 units=mi bus1=15.1.2.3.4 bus2=16.1.2.3.4 Rho=265
+new line.line16 geometry=4wire length=0.1 units=mi bus1=16.1.2.3.4 bus2=17.1.2.3.4 Rho=265
+new line.line17 geometry=4wire length=0.1 units=mi bus1=17.1.2.3.4 bus2=18.1.2.3.4 Rho=265
+new line.line18 geometry=4wire length=0.1 units=mi bus1=18.1.2.3.4 bus2=19.1.2.3.4 Rho=265
+new line.line19 geometry=4wire length=0.1 units=mi bus1=19.1.2.3.4 bus2=20.1.2.3.4 Rho=265
+new line.line20 geometry=4wire length=0.1 units=mi bus1=20.1.2.3.4 bus2=21.1.2.3.4 Rho=265
+new line.line21 geometry=4wire length=0.1 units=mi bus1=21.1.2.3.4 bus2=22.1.2.3.4 Rho=265
+new line.line22 geometry=4wire length=0.1 units=mi bus1=22.1.2.3.4 bus2=23.1.2.3.4 Rho=265
+new line.line23 geometry=4wire length=0.1 units=mi bus1=23.1.2.3.4 bus2=24.1.2.3.4 Rho=265
+new line.line24 geometry=4wire length=0.1 units=mi bus1=24.1.2.3.4 bus2=25.1.2.3.4 Rho=265
+new line.line25 geometry=4wire length=0.1 units=mi bus1=25.1.2.3.4 bus2=26.1.2.3.4 Rho=265
+new line.line26 geometry=4wire length=0.1 units=mi bus1=26.1.2.3.4 bus2=27.1.2.3.4 Rho=265
+new line.line27 geometry=4wire length=0.1 units=mi bus1=27.1.2.3.4 bus2=28.1.2.3.4 Rho=265
+new line.line28 geometry=4wire length=0.1 units=mi bus1=28.1.2.3.4 bus2=29.1.2.3.4 Rho=265
+new line.line29 geometry=4wire length=0.1 units=mi bus1=29.1.2.3.4 bus2=30.1.2.3.4 Rho=265
+new line.line30 geometry=4wire length=0.1 units=mi bus1=30.1.2.3.4 bus2=31.1.2.3.4 Rho=265
+new line.line31 geometry=4wire length=0.1 units=mi bus1=31.1.2.3.4 bus2=32.1.2.3.4 Rho=265
+new line.line32 geometry=4wire length=0.1 units=mi bus1=32.1.2.3.4 bus2=33.1.2.3.4 Rho=265
+new line.line33 geometry=4wire length=0.1 units=mi bus1=33.1.2.3.4 bus2=34.1.2.3.4 Rho=265
+new line.line34 geometry=4wire length=0.1 units=mi bus1=34.1.2.3.4 bus2=35.1.2.3.4 Rho=265
+new line.line35 geometry=4wire length=0.1 units=mi bus1=35.1.2.3.4 bus2=36.1.2.3.4 Rho=265
+new line.line36 geometry=4wire length=0.1 units=mi bus1=36.1.2.3.4 bus2=37.1.2.3.4 Rho=265
+new line.line37 geometry=4wire length=0.1 units=mi bus1=37.1.2.3.4 bus2=38.1.2.3.4 Rho=265
+new line.line38 geometry=4wire length=0.1 units=mi bus1=38.1.2.3.4 bus2=39.1.2.3.4 Rho=265
+new line.line39 geometry=4wire length=0.1 units=mi bus1=39.1.2.3.4 bus2=40.1.2.3.4 Rho=265
+new line.line40 geometry=4wire length=0.1 units=mi bus1=40.1.2.3.4 bus2=41.1.2.3.4 Rho=265
+new line.line41 geometry=4wire length=0.1 units=mi bus1=41.1.2.3.4 bus2=42.1.2.3.4 Rho=265
+new line.line42 geometry=4wire length=0.1 units=mi bus1=42.1.2.3.4 bus2=43.1.2.3.4 Rho=265
+new line.line43 geometry=4wire length=0.1 units=mi bus1=43.1.2.3.4 bus2=44.1.2.3.4 Rho=265
+new line.line44 geometry=4wire length=0.1 units=mi bus1=44.1.2.3.4 bus2=45.1.2.3.4 Rho=265
+new line.line45 geometry=4wire length=0.1 units=mi bus1=45.1.2.3.4 bus2=46.1.2.3.4 Rho=265
+new line.line46 geometry=4wire length=0.1 units=mi bus1=46.1.2.3.4 bus2=47.1.2.3.4 Rho=265
+new line.line47 geometry=4wire length=0.1 units=mi bus1=47.1.2.3.4 bus2=48.1.2.3.4 Rho=265
+new line.line48 geometry=4wire length=0.1 units=mi bus1=48.1.2.3.4 bus2=49.1.2.3.4 Rho=265
+new line.line49 geometry=4wire length=0.1 units=mi bus1=49.1.2.3.4 bus2=50.1.2.3.4 Rho=265
+new line.line50 geometry=4wire length=0.1 units=mi bus1=50.1.2.3.4 bus2=51.1.2.3.4 Rho=265
+new line.line51 geometry=4wire length=0.1 units=mi bus1=51.1.2.3.4 bus2=52.1.2.3.4 Rho=265
+new line.line52 geometry=4wire length=0.1 units=mi bus1=52.1.2.3.4 bus2=53.1.2.3.4 Rho=265
+new line.line53 geometry=4wire length=0.1 units=mi bus1=53.1.2.3.4 bus2=54.1.2.3.4 Rho=265
+new line.line54 geometry=4wire length=0.1 units=mi bus1=54.1.2.3.4 bus2=55.1.2.3.4 Rho=265
+new line.line55 geometry=4wire length=0.1 units=mi bus1=55.1.2.3.4 bus2=56.1.2.3.4 Rho=265
+new line.line56 geometry=4wire length=0.1 units=mi bus1=56.1.2.3.4 bus2=57.1.2.3.4 Rho=265
+new line.line57 geometry=4wire length=0.1 units=mi bus1=57.1.2.3.4 bus2=58.1.2.3.4 Rho=265
+new line.line58 geometry=4wire length=0.1 units=mi bus1=58.1.2.3.4 bus2=59.1.2.3.4 Rho=265
+new line.line59 geometry=4wire length=0.1 units=mi bus1=59.1.2.3.4 bus2=60.1.2.3.4 Rho=265
+new line.line60 geometry=4wire length=0.1 units=mi bus1=60.1.2.3.4 bus2=61.1.2.3.4 Rho=265
+new line.line61 geometry=4wire length=0.1 units=mi bus1=61.1.2.3.4 bus2=62.1.2.3.4 Rho=265
+new line.line62 geometry=4wire length=0.1 units=mi bus1=62.1.2.3.4 bus2=63.1.2.3.4 Rho=265
+new line.line63 geometry=4wire length=0.1 units=mi bus1=63.1.2.3.4 bus2=64.1.2.3.4 Rho=265
+new line.line64 geometry=4wire length=0.1 units=mi bus1=64.1.2.3.4 bus2=65.1.2.3.4 Rho=265
+new line.line65 geometry=4wire length=0.1 units=mi bus1=65.1.2.3.4 bus2=66.1.2.3.4 Rho=265
+new line.line66 geometry=4wire length=0.1 units=mi bus1=66.1.2.3.4 bus2=67.1.2.3.4 Rho=265
+new line.line67 geometry=4wire length=0.1 units=mi bus1=67.1.2.3.4 bus2=68.1.2.3.4 Rho=265
+new line.line68 geometry=4wire length=0.1 units=mi bus1=68.1.2.3.4 bus2=69.1.2.3.4 Rho=265
+new line.line69 geometry=4wire length=0.1 units=mi bus1=69.1.2.3.4 bus2=70.1.2.3.4 Rho=265
+new line.line70 geometry=4wire length=0.1 units=mi bus1=70.1.2.3.4 bus2=71.1.2.3.4 Rho=265
+new line.line71 geometry=4wire length=0.1 units=mi bus1=71.1.2.3.4 bus2=72.1.2.3.4 Rho=265
+new line.line72 geometry=4wire length=0.1 units=mi bus1=72.1.2.3.4 bus2=73.1.2.3.4 Rho=265
+new line.line73 geometry=4wire length=0.1 units=mi bus1=73.1.2.3.4 bus2=74.1.2.3.4 Rho=265
+new line.line74 geometry=4wire length=0.1 units=mi bus1=74.1.2.3.4 bus2=75.1.2.3.4 Rho=265
+new line.line75 geometry=4wire length=0.1 units=mi bus1=75.1.2.3.4 bus2=76.1.2.3.4 Rho=265
+new line.line76 geometry=4wire length=0.1 units=mi bus1=76.1.2.3.4 bus2=77.1.2.3.4 Rho=265
+new line.line77 geometry=4wire length=0.1 units=mi bus1=77.1.2.3.4 bus2=78.1.2.3.4 Rho=265
+new line.line78 geometry=4wire length=0.1 units=mi bus1=78.1.2.3.4 bus2=79.1.2.3.4 Rho=265
+new line.line79 geometry=4wire length=0.1 units=mi bus1=79.1.2.3.4 bus2=80.1.2.3.4 Rho=265
+new line.line80 geometry=4wire length=0.1 units=mi bus1=80.1.2.3.4 bus2=81.1.2.3.4 Rho=265
+new line.line81 geometry=4wire length=0.1 units=mi bus1=81.1.2.3.4 bus2=82.1.2.3.4 Rho=265
+new line.line82 geometry=4wire length=0.1 units=mi bus1=82.1.2.3.4 bus2=83.1.2.3.4 Rho=265
+new line.line83 geometry=4wire length=0.1 units=mi bus1=83.1.2.3.4 bus2=84.1.2.3.4 Rho=265
+new line.line84 geometry=4wire length=0.1 units=mi bus1=84.1.2.3.4 bus2=85.1.2.3.4 Rho=265
+new line.line85 geometry=4wire length=0.1 units=mi bus1=85.1.2.3.4 bus2=86.1.2.3.4 Rho=265
+new line.line86 geometry=4wire length=0.1 units=mi bus1=86.1.2.3.4 bus2=87.1.2.3.4 Rho=265
+new line.line87 geometry=4wire length=0.1 units=mi bus1=87.1.2.3.4 bus2=88.1.2.3.4 Rho=265
+new line.line88 geometry=4wire length=0.1 units=mi bus1=88.1.2.3.4 bus2=89.1.2.3.4 Rho=265
+new line.line89 geometry=4wire length=0.1 units=mi bus1=89.1.2.3.4 bus2=90.1.2.3.4 Rho=265
+new line.line90 geometry=4wire length=0.1 units=mi bus1=90.1.2.3.4 bus2=91.1.2.3.4 Rho=265
+new line.line91 geometry=4wire length=0.1 units=mi bus1=91.1.2.3.4 bus2=92.1.2.3.4 Rho=265
+new line.line92 geometry=4wire length=0.1 units=mi bus1=92.1.2.3.4 bus2=93.1.2.3.4 Rho=265
+new line.line93 geometry=4wire length=0.1 units=mi bus1=93.1.2.3.4 bus2=94.1.2.3.4 Rho=265
+new line.line94 geometry=4wire length=0.1 units=mi bus1=94.1.2.3.4 bus2=95.1.2.3.4 Rho=265
+new line.line95 geometry=4wire length=0.1 units=mi bus1=95.1.2.3.4 bus2=96.1.2.3.4 Rho=265
+new line.line96 geometry=4wire length=0.1 units=mi bus1=96.1.2.3.4 bus2=97.1.2.3.4 Rho=265
+new line.line97 geometry=4wire length=0.1 units=mi bus1=97.1.2.3.4 bus2=98.1.2.3.4 Rho=265
+new line.line98 geometry=4wire length=0.1 units=mi bus1=98.1.2.3.4 bus2=99.1.2.3.4 Rho=265
+new line.line99 geometry=4wire length=0.1 units=mi bus1=99.1.2.3.4 bus2=100.1.2.3.4 Rho=265
+new line.line100 geometry=4wire length=0.1 units=mi bus1=100.1.2.3.4 bus2=101.1.2.3.4 Rho=265
+new line.line101 geometry=4wire length=0.1 units=mi bus1=101.1.2.3.4 bus2=102.1.2.3.4 Rho=265
+new line.line102 geometry=4wire length=0.1 units=mi bus1=102.1.2.3.4 bus2=103.1.2.3.4 Rho=265
+new line.line103 geometry=4wire length=0.1 units=mi bus1=103.1.2.3.4 bus2=104.1.2.3.4 Rho=265
+new line.line104 geometry=4wire length=0.1 units=mi bus1=104.1.2.3.4 bus2=105.1.2.3.4 Rho=265
+new line.line105 geometry=4wire length=0.1 units=mi bus1=105.1.2.3.4 bus2=106.1.2.3.4 Rho=265
+new line.line106 geometry=4wire length=0.1 units=mi bus1=106.1.2.3.4 bus2=107.1.2.3.4 Rho=265
+new line.line107 geometry=4wire length=0.1 units=mi bus1=107.1.2.3.4 bus2=108.1.2.3.4 Rho=265
+new line.line108 geometry=4wire length=0.1 units=mi bus1=108.1.2.3.4 bus2=109.1.2.3.4 Rho=265
+new line.line109 geometry=4wire length=0.1 units=mi bus1=109.1.2.3.4 bus2=110.1.2.3.4 Rho=265
+new line.line110 geometry=4wire length=0.1 units=mi bus1=110.1.2.3.4 bus2=111.1.2.3.4 Rho=265
+new line.line111 geometry=4wire length=0.1 units=mi bus1=111.1.2.3.4 bus2=112.1.2.3.4 Rho=265
+new line.line112 geometry=4wire length=0.1 units=mi bus1=112.1.2.3.4 bus2=113.1.2.3.4 Rho=265
+new line.line113 geometry=4wire length=0.1 units=mi bus1=113.1.2.3.4 bus2=114.1.2.3.4 Rho=265
+new line.line114 geometry=4wire length=0.1 units=mi bus1=114.1.2.3.4 bus2=115.1.2.3.4 Rho=265
+new line.line115 geometry=4wire length=0.1 units=mi bus1=115.1.2.3.4 bus2=116.1.2.3.4 Rho=265
+new line.line116 geometry=4wire length=0.1 units=mi bus1=116.1.2.3.4 bus2=117.1.2.3.4 Rho=265
+new line.line117 geometry=4wire length=0.1 units=mi bus1=117.1.2.3.4 bus2=118.1.2.3.4 Rho=265
+new line.line118 geometry=4wire length=0.1 units=mi bus1=118.1.2.3.4 bus2=119.1.2.3.4 Rho=265
+new line.line119 geometry=4wire length=0.1 units=mi bus1=119.1.2.3.4 bus2=120.1.2.3.4 Rho=265
+new line.line120 geometry=4wire length=0.1 units=mi bus1=120.1.2.3.4 bus2=121.1.2.3.4 Rho=265
+new line.line121 geometry=4wire length=0.1 units=mi bus1=121.1.2.3.4 bus2=122.1.2.3.4 Rho=265
+new line.line122 geometry=4wire length=0.1 units=mi bus1=122.1.2.3.4 bus2=123.1.2.3.4 Rho=265
+new line.line123 geometry=4wire length=0.1 units=mi bus1=123.1.2.3.4 bus2=124.1.2.3.4 Rho=265
+new line.line124 geometry=4wire length=0.1 units=mi bus1=124.1.2.3.4 bus2=125.1.2.3.4 Rho=265
+new line.line125 geometry=4wire length=0.1 units=mi bus1=125.1.2.3.4 bus2=126.1.2.3.4 Rho=265
+new line.line126 geometry=4wire length=0.1 units=mi bus1=126.1.2.3.4 bus2=127.1.2.3.4 Rho=265
+new line.line127 geometry=4wire length=0.1 units=mi bus1=127.1.2.3.4 bus2=128.1.2.3.4 Rho=265
+new line.line128 geometry=4wire length=0.1 units=mi bus1=128.1.2.3.4 bus2=129.1.2.3.4 Rho=265
+new line.line129 geometry=4wire length=0.1 units=mi bus1=129.1.2.3.4 bus2=130.1.2.3.4 Rho=265
+new line.line130 geometry=4wire length=0.1 units=mi bus1=130.1.2.3.4 bus2=131.1.2.3.4 Rho=265
+new line.line131 geometry=4wire length=0.1 units=mi bus1=131.1.2.3.4 bus2=132.1.2.3.4 Rho=265
+new line.line132 geometry=4wire length=0.1 units=mi bus1=132.1.2.3.4 bus2=133.1.2.3.4 Rho=265
+new line.line133 geometry=4wire length=0.1 units=mi bus1=133.1.2.3.4 bus2=134.1.2.3.4 Rho=265
+new line.line134 geometry=4wire length=0.1 units=mi bus1=134.1.2.3.4 bus2=135.1.2.3.4 Rho=265
+new line.line135 geometry=4wire length=0.1 units=mi bus1=135.1.2.3.4 bus2=136.1.2.3.4 Rho=265
+new line.line136 geometry=4wire length=0.1 units=mi bus1=136.1.2.3.4 bus2=137.1.2.3.4 Rho=265
+new line.line137 geometry=4wire length=0.1 units=mi bus1=137.1.2.3.4 bus2=138.1.2.3.4 Rho=265
+new line.line138 geometry=4wire length=0.1 units=mi bus1=138.1.2.3.4 bus2=139.1.2.3.4 Rho=265
+new line.line139 geometry=4wire length=0.1 units=mi bus1=139.1.2.3.4 bus2=140.1.2.3.4 Rho=265
+new line.line140 geometry=4wire length=0.1 units=mi bus1=140.1.2.3.4 bus2=141.1.2.3.4 Rho=265
+new line.line141 geometry=4wire length=0.1 units=mi bus1=141.1.2.3.4 bus2=142.1.2.3.4 Rho=265
+new line.line142 geometry=4wire length=0.1 units=mi bus1=142.1.2.3.4 bus2=143.1.2.3.4 Rho=265
+new line.line143 geometry=4wire length=0.1 units=mi bus1=143.1.2.3.4 bus2=144.1.2.3.4 Rho=265
+new line.line144 geometry=4wire length=0.1 units=mi bus1=144.1.2.3.4 bus2=145.1.2.3.4 Rho=265
+new line.line145 geometry=4wire length=0.1 units=mi bus1=145.1.2.3.4 bus2=146.1.2.3.4 Rho=265
+new line.line146 geometry=4wire length=0.1 units=mi bus1=146.1.2.3.4 bus2=147.1.2.3.4 Rho=265
+new line.line147 geometry=4wire length=0.1 units=mi bus1=147.1.2.3.4 bus2=148.1.2.3.4 Rho=265
+new line.line148 geometry=4wire length=0.1 units=mi bus1=148.1.2.3.4 bus2=149.1.2.3.4 Rho=265
+new line.line149 geometry=4wire length=0.1 units=mi bus1=149.1.2.3.4 bus2=150.1.2.3.4 Rho=265
+new line.line150 geometry=4wire length=0.1 units=mi bus1=150.1.2.3.4 bus2=151.1.2.3.4 Rho=265
+new line.line151 geometry=4wire length=0.1 units=mi bus1=151.1.2.3.4 bus2=152.1.2.3.4 Rho=265
+new line.line152 geometry=4wire length=0.1 units=mi bus1=152.1.2.3.4 bus2=153.1.2.3.4 Rho=265
+new line.line153 geometry=4wire length=0.1 units=mi bus1=153.1.2.3.4 bus2=154.1.2.3.4 Rho=265
+new line.line154 geometry=4wire length=0.1 units=mi bus1=154.1.2.3.4 bus2=155.1.2.3.4 Rho=265
+new line.line155 geometry=4wire length=0.1 units=mi bus1=155.1.2.3.4 bus2=156.1.2.3.4 Rho=265
+new line.line156 geometry=4wire length=0.1 units=mi bus1=156.1.2.3.4 bus2=157.1.2.3.4 Rho=265
+new line.line157 geometry=4wire length=0.1 units=mi bus1=157.1.2.3.4 bus2=158.1.2.3.4 Rho=265
+new line.line158 geometry=4wire length=0.1 units=mi bus1=158.1.2.3.4 bus2=159.1.2.3.4 Rho=265
+new line.line159 geometry=4wire length=0.1 units=mi bus1=159.1.2.3.4 bus2=160.1.2.3.4 Rho=265
+new line.line160 geometry=4wire length=0.1 units=mi bus1=160.1.2.3.4 bus2=161.1.2.3.4 Rho=265
+new line.line161 geometry=4wire length=0.1 units=mi bus1=161.1.2.3.4 bus2=162.1.2.3.4 Rho=265
+new line.line162 geometry=4wire length=0.1 units=mi bus1=162.1.2.3.4 bus2=163.1.2.3.4 Rho=265
+new line.line163 geometry=4wire length=0.1 units=mi bus1=163.1.2.3.4 bus2=164.1.2.3.4 Rho=265
+new line.line164 geometry=4wire length=0.1 units=mi bus1=164.1.2.3.4 bus2=165.1.2.3.4 Rho=265
+new line.line165 geometry=4wire length=0.1 units=mi bus1=165.1.2.3.4 bus2=166.1.2.3.4 Rho=265
+new line.line166 geometry=4wire length=0.1 units=mi bus1=166.1.2.3.4 bus2=167.1.2.3.4 Rho=265
+new line.line167 geometry=4wire length=0.1 units=mi bus1=167.1.2.3.4 bus2=168.1.2.3.4 Rho=265
+new line.line168 geometry=4wire length=0.1 units=mi bus1=168.1.2.3.4 bus2=169.1.2.3.4 Rho=265
+new line.line169 geometry=4wire length=0.1 units=mi bus1=169.1.2.3.4 bus2=170.1.2.3.4 Rho=265
+new line.line170 geometry=4wire length=0.1 units=mi bus1=170.1.2.3.4 bus2=171.1.2.3.4 Rho=265
+new line.line171 geometry=4wire length=0.1 units=mi bus1=171.1.2.3.4 bus2=172.1.2.3.4 Rho=265
+new line.line172 geometry=4wire length=0.1 units=mi bus1=172.1.2.3.4 bus2=173.1.2.3.4 Rho=265
+new line.line173 geometry=4wire length=0.1 units=mi bus1=173.1.2.3.4 bus2=174.1.2.3.4 Rho=265
+new line.line174 geometry=4wire length=0.1 units=mi bus1=174.1.2.3.4 bus2=175.1.2.3.4 Rho=265
+new line.line175 geometry=4wire length=0.1 units=mi bus1=175.1.2.3.4 bus2=176.1.2.3.4 Rho=265
+new line.line176 geometry=4wire length=0.1 units=mi bus1=176.1.2.3.4 bus2=177.1.2.3.4 Rho=265
+new line.line177 geometry=4wire length=0.1 units=mi bus1=177.1.2.3.4 bus2=178.1.2.3.4 Rho=265
+new line.line178 geometry=4wire length=0.1 units=mi bus1=178.1.2.3.4 bus2=179.1.2.3.4 Rho=265
+new line.line179 geometry=4wire length=0.1 units=mi bus1=179.1.2.3.4 bus2=180.1.2.3.4 Rho=265
+new line.line180 geometry=4wire length=0.1 units=mi bus1=180.1.2.3.4 bus2=181.1.2.3.4 Rho=265
+new line.line181 geometry=4wire length=0.1 units=mi bus1=181.1.2.3.4 bus2=182.1.2.3.4 Rho=265
+new line.line182 geometry=4wire length=0.1 units=mi bus1=182.1.2.3.4 bus2=183.1.2.3.4 Rho=265
+new line.line183 geometry=4wire length=0.1 units=mi bus1=183.1.2.3.4 bus2=184.1.2.3.4 Rho=265
+new line.line184 geometry=4wire length=0.1 units=mi bus1=184.1.2.3.4 bus2=185.1.2.3.4 Rho=265
+new line.line185 geometry=4wire length=0.1 units=mi bus1=185.1.2.3.4 bus2=186.1.2.3.4 Rho=265
+new line.line186 geometry=4wire length=0.1 units=mi bus1=186.1.2.3.4 bus2=187.1.2.3.4 Rho=265
+new line.line187 geometry=4wire length=0.1 units=mi bus1=187.1.2.3.4 bus2=188.1.2.3.4 Rho=265
+new line.line188 geometry=4wire length=0.1 units=mi bus1=188.1.2.3.4 bus2=189.1.2.3.4 Rho=265
+new line.line189 geometry=4wire length=0.1 units=mi bus1=189.1.2.3.4 bus2=190.1.2.3.4 Rho=265
+new line.line190 geometry=4wire length=0.1 units=mi bus1=190.1.2.3.4 bus2=191.1.2.3.4 Rho=265
+new line.line191 geometry=4wire length=0.1 units=mi bus1=191.1.2.3.4 bus2=192.1.2.3.4 Rho=265
+new line.line192 geometry=4wire length=0.1 units=mi bus1=192.1.2.3.4 bus2=193.1.2.3.4 Rho=265
+new line.line193 geometry=4wire length=0.1 units=mi bus1=193.1.2.3.4 bus2=194.1.2.3.4 Rho=265
+new line.line194 geometry=4wire length=0.1 units=mi bus1=194.1.2.3.4 bus2=195.1.2.3.4 Rho=265
+new line.line195 geometry=4wire length=0.1 units=mi bus1=195.1.2.3.4 bus2=196.1.2.3.4 Rho=265
+new line.line196 geometry=4wire length=0.1 units=mi bus1=196.1.2.3.4 bus2=197.1.2.3.4 Rho=265
+new line.line197 geometry=4wire length=0.1 units=mi bus1=197.1.2.3.4 bus2=198.1.2.3.4 Rho=265
+new line.line198 geometry=4wire length=0.1 units=mi bus1=198.1.2.3.4 bus2=199.1.2.3.4 Rho=265
+new line.line199 geometry=4wire length=0.1 units=mi bus1=199.1.2.3.4 bus2=200.1.2.3.4 Rho=265
+new line.line200 geometry=4wire length=0.1 units=mi bus1=200.1.2.3.4 bus2=201.1.2.3.4 Rho=265
+new line.line201 geometry=4wire length=0.1 units=mi bus1=201.1.2.3.4 bus2=202.1.2.3.4 Rho=265
+new line.line202 geometry=4wire length=0.1 units=mi bus1=202.1.2.3.4 bus2=203.1.2.3.4 Rho=265
+new line.line203 geometry=4wire length=0.1 units=mi bus1=203.1.2.3.4 bus2=204.1.2.3.4 Rho=265
+new line.line204 geometry=4wire length=0.1 units=mi bus1=204.1.2.3.4 bus2=205.1.2.3.4 Rho=265
+new line.line205 geometry=4wire length=0.1 units=mi bus1=205.1.2.3.4 bus2=206.1.2.3.4 Rho=265
+new line.line206 geometry=4wire length=0.1 units=mi bus1=206.1.2.3.4 bus2=207.1.2.3.4 Rho=265
+new line.line207 geometry=4wire length=0.1 units=mi bus1=207.1.2.3.4 bus2=208.1.2.3.4 Rho=265
+new line.line208 geometry=4wire length=0.1 units=mi bus1=208.1.2.3.4 bus2=209.1.2.3.4 Rho=265
+new line.line209 geometry=4wire length=0.1 units=mi bus1=209.1.2.3.4 bus2=210.1.2.3.4 Rho=265
+new line.line210 geometry=4wire length=0.1 units=mi bus1=210.1.2.3.4 bus2=211.1.2.3.4 Rho=265
+new line.line211 geometry=4wire length=0.1 units=mi bus1=211.1.2.3.4 bus2=212.1.2.3.4 Rho=265
+new line.line212 geometry=4wire length=0.1 units=mi bus1=212.1.2.3.4 bus2=213.1.2.3.4 Rho=265
+new line.line213 geometry=4wire length=0.1 units=mi bus1=213.1.2.3.4 bus2=214.1.2.3.4 Rho=265
+new line.line214 geometry=4wire length=0.1 units=mi bus1=214.1.2.3.4 bus2=215.1.2.3.4 Rho=265
+new line.line215 geometry=4wire length=0.1 units=mi bus1=215.1.2.3.4 bus2=216.1.2.3.4 Rho=265
+new line.line216 geometry=4wire length=0.1 units=mi bus1=216.1.2.3.4 bus2=217.1.2.3.4 Rho=265
+new line.line217 geometry=4wire length=0.1 units=mi bus1=217.1.2.3.4 bus2=218.1.2.3.4 Rho=265
+new line.line218 geometry=4wire length=0.1 units=mi bus1=218.1.2.3.4 bus2=219.1.2.3.4 Rho=265
+new line.line219 geometry=4wire length=0.1 units=mi bus1=219.1.2.3.4 bus2=220.1.2.3.4 Rho=265
+new line.line220 geometry=4wire length=0.1 units=mi bus1=220.1.2.3.4 bus2=221.1.2.3.4 Rho=265
+new line.line221 geometry=4wire length=0.1 units=mi bus1=221.1.2.3.4 bus2=222.1.2.3.4 Rho=265
+new line.line222 geometry=4wire length=0.1 units=mi bus1=222.1.2.3.4 bus2=223.1.2.3.4 Rho=265
+new line.line223 geometry=4wire length=0.1 units=mi bus1=223.1.2.3.4 bus2=224.1.2.3.4 Rho=265
+new line.line224 geometry=4wire length=0.1 units=mi bus1=224.1.2.3.4 bus2=225.1.2.3.4 Rho=265
+new line.line225 geometry=4wire length=0.1 units=mi bus1=225.1.2.3.4 bus2=226.1.2.3.4 Rho=265
+new line.line226 geometry=4wire length=0.1 units=mi bus1=226.1.2.3.4 bus2=227.1.2.3.4 Rho=265
+new line.line227 geometry=4wire length=0.1 units=mi bus1=227.1.2.3.4 bus2=228.1.2.3.4 Rho=265
+new line.line228 geometry=4wire length=0.1 units=mi bus1=228.1.2.3.4 bus2=229.1.2.3.4 Rho=265
+new line.line229 geometry=4wire length=0.1 units=mi bus1=229.1.2.3.4 bus2=230.1.2.3.4 Rho=265
+new line.line230 geometry=4wire length=0.1 units=mi bus1=230.1.2.3.4 bus2=231.1.2.3.4 Rho=265
+new line.line231 geometry=4wire length=0.1 units=mi bus1=231.1.2.3.4 bus2=232.1.2.3.4 Rho=265
+new line.line232 geometry=4wire length=0.1 units=mi bus1=232.1.2.3.4 bus2=233.1.2.3.4 Rho=265
+new line.line233 geometry=4wire length=0.1 units=mi bus1=233.1.2.3.4 bus2=234.1.2.3.4 Rho=265
+new line.line234 geometry=4wire length=0.1 units=mi bus1=234.1.2.3.4 bus2=235.1.2.3.4 Rho=265
+new line.line235 geometry=4wire length=0.1 units=mi bus1=235.1.2.3.4 bus2=236.1.2.3.4 Rho=265
+new line.line236 geometry=4wire length=0.1 units=mi bus1=236.1.2.3.4 bus2=237.1.2.3.4 Rho=265
+!Transformer
+new transformer.t1 xhl=10
+~ wdg=1 bus=237.1.2.3.4 conn=delta kV=115 kVA=20000 %r=0.0 
+~ wdg=2 bus=238.1.2.3.4 conn=wye kV=12  kVA=20000 %r=0.0
+! **** DEFINE WIRE DATA 12kv line
+new wiredata.conductor2 Runits=mi Rac=1.12 GMRunits=ft GMRac=0.00446  
+new wiredata.neutral2   Runits=mi Rac=1.65 GMRunits=ft GMRac=0.00504 
+! **** DEFINE LINE GEOMETRY 12kv line
+new linegeometry.4wire2 nconds=4 nphases=3 reduce=no 
+~ cond=1 wire=conductor units=ft x=0   h=38.41 
+~ cond=2 wire=conductor units=ft x=-3.5  h=36.25 
+~ cond=3 wire=conductor units=ft x=+3.5    h=36.25 
+~ cond=4 wire=neutral     units=ft x=0.    h=31.75 
+! ****12 KV LINE!
+new line.line239 geometry=4wire length=0.0833333333 units=mi bus1=238.1.2.3.4 bus2=239.1.2.3.4 Rho=265
+new line.line240 geometry=4wire length=0.0833333333 units=mi bus1=239.1.2.3.4 bus2=240.1.2.3.4 Rho=265
+new line.line241 geometry=4wire length=0.0833333333 units=mi bus1=240.1.2.3.4 bus2=241.1.2.3.4 Rho=265
+new line.line242 geometry=4wire length=0.0833333333 units=mi bus1=241.1.2.3.4 bus2=242.1.2.3.4 Rho=265
+new line.line243 geometry=4wire length=0.0833333333 units=mi bus1=242.1.2.3.4 bus2=243.1.2.3.4 Rho=265
+new line.line244 geometry=4wire length=0.0833333333 units=mi bus1=243.1.2.3.4 bus2=244.1.2.3.4 Rho=265
+new line.line245 geometry=4wire length=0.0833333333 units=mi bus1=244.1.2.3.4 bus2=245.1.2.3.4 Rho=265
+new line.line246 geometry=4wire length=0.0833333333 units=mi bus1=245.1.2.3.4 bus2=246.1.2.3.4 Rho=265
+new line.line247 geometry=4wire length=0.0833333333 units=mi bus1=246.1.2.3.4 bus2=247.1.2.3.4 Rho=265
+new line.line248 geometry=4wire length=0.0833333333 units=mi bus1=247.1.2.3.4 bus2=248.1.2.3.4 Rho=265
+new line.line249 geometry=4wire length=0.0833333333 units=mi bus1=248.1.2.3.4 bus2=249.1.2.3.4 Rho=265
+new line.line250 geometry=4wire length=0.0833333333 units=mi bus1=249.1.2.3.4 bus2=250.1.2.3.4 Rho=265
+new line.line251 geometry=4wire length=0.0833333333 units=mi bus1=250.1.2.3.4 bus2=251.1.2.3.4 Rho=265
+new line.line252 geometry=4wire length=0.0833333333 units=mi bus1=251.1.2.3.4 bus2=252.1.2.3.4 Rho=265
+new line.line253 geometry=4wire length=0.0833333333 units=mi bus1=252.1.2.3.4 bus2=253.1.2.3.4 Rho=265
+new line.line254 geometry=4wire length=0.0833333333 units=mi bus1=253.1.2.3.4 bus2=254.1.2.3.4 Rho=265
+new line.line255 geometry=4wire length=0.0833333333 units=mi bus1=254.1.2.3.4 bus2=255.1.2.3.4 Rho=265
+new line.line256 geometry=4wire length=0.0833333333 units=mi bus1=255.1.2.3.4 bus2=256.1.2.3.4 Rho=265
+new line.line257 geometry=4wire length=0.0833333333 units=mi bus1=256.1.2.3.4 bus2=257.1.2.3.4 Rho=265
+new line.line258 geometry=4wire length=0.0833333333 units=mi bus1=257.1.2.3.4 bus2=258.1.2.3.4 Rho=265
+new line.line259 geometry=4wire length=0.0833333333 units=mi bus1=258.1.2.3.4 bus2=259.1.2.3.4 Rho=265
+new line.line260 geometry=4wire length=0.0833333333 units=mi bus1=259.1.2.3.4 bus2=260.1.2.3.4 Rho=265
+new line.line261 geometry=4wire length=0.0833333333 units=mi bus1=260.1.2.3.4 bus2=261.1.2.3.4 Rho=265
+new line.line262 geometry=4wire length=0.0833333333 units=mi bus1=261.1.2.3.4 bus2=262.1.2.3.4 Rho=265
+new line.line263 geometry=4wire length=0.0833333333 units=mi bus1=262.1.2.3.4 bus2=263.1.2.3.4 Rho=265
+new line.line264 geometry=4wire length=0.0833333333 units=mi bus1=263.1.2.3.4 bus2=264.1.2.3.4 Rho=265
+new line.line265 geometry=4wire length=0.0833333333 units=mi bus1=264.1.2.3.4 bus2=265.1.2.3.4 Rho=265
+new line.line266 geometry=4wire length=0.0833333333 units=mi bus1=265.1.2.3.4 bus2=266.1.2.3.4 Rho=265
+new line.line267 geometry=4wire length=0.0833333333 units=mi bus1=266.1.2.3.4 bus2=267.1.2.3.4 Rho=265
+new line.line268 geometry=4wire length=0.0833333333 units=mi bus1=267.1.2.3.4 bus2=268.1.2.3.4 Rho=265
+new line.line269 geometry=4wire length=0.0833333333 units=mi bus1=268.1.2.3.4 bus2=269.1.2.3.4 Rho=265
+new line.line270 geometry=4wire length=0.0833333333 units=mi bus1=269.1.2.3.4 bus2=270.1.2.3.4 Rho=265
+new line.line271 geometry=4wire length=0.0833333333 units=mi bus1=270.1.2.3.4 bus2=271.1.2.3.4 Rho=265
+new line.line272 geometry=4wire length=0.0833333333 units=mi bus1=271.1.2.3.4 bus2=272.1.2.3.4 Rho=265
+new line.line273 geometry=4wire length=0.0833333333 units=mi bus1=272.1.2.3.4 bus2=273.1.2.3.4 Rho=265
+new line.line274 geometry=4wire length=0.0833333333 units=mi bus1=273.1.2.3.4 bus2=274.1.2.3.4 Rho=265
+new line.line275 geometry=4wire length=0.0833333333 units=mi bus1=274.1.2.3.4 bus2=275.1.2.3.4 Rho=265
+new line.line276 geometry=4wire length=0.0833333333 units=mi bus1=275.1.2.3.4 bus2=276.1.2.3.4 Rho=265
+new line.line277 geometry=4wire length=0.0833333333 units=mi bus1=276.1.2.3.4 bus2=277.1.2.3.4 Rho=265
+new line.line278 geometry=4wire length=0.0833333333 units=mi bus1=277.1.2.3.4 bus2=278.1.2.3.4 Rho=265
+new line.line279 geometry=4wire length=0.0833333333 units=mi bus1=278.1.2.3.4 bus2=279.1.2.3.4 Rho=265
+new line.line280 geometry=4wire length=0.0833333333 units=mi bus1=279.1.2.3.4 bus2=280.1.2.3.4 Rho=265
+new line.line281 geometry=4wire length=0.0833333333 units=mi bus1=280.1.2.3.4 bus2=281.1.2.3.4 Rho=265
+new line.line282 geometry=4wire length=0.0833333333 units=mi bus1=281.1.2.3.4 bus2=282.1.2.3.4 Rho=265
+new line.line283 geometry=4wire length=0.0833333333 units=mi bus1=282.1.2.3.4 bus2=283.1.2.3.4 Rho=265
+new line.line284 geometry=4wire length=0.0833333333 units=mi bus1=283.1.2.3.4 bus2=284.1.2.3.4 Rho=265
+new line.line285 geometry=4wire length=0.0833333333 units=mi bus1=284.1.2.3.4 bus2=285.1.2.3.4 Rho=265
+new line.line286 geometry=4wire length=0.0833333333 units=mi bus1=285.1.2.3.4 bus2=286.1.2.3.4 Rho=265
+new line.line287 geometry=4wire length=0.0833333333 units=mi bus1=286.1.2.3.4 bus2=287.1.2.3.4 Rho=265
+new line.line288 geometry=4wire length=0.0833333333 units=mi bus1=287.1.2.3.4 bus2=288.1.2.3.4 Rho=265
+new line.line289 geometry=4wire length=0.0833333333 units=mi bus1=288.1.2.3.4 bus2=289.1.2.3.4 Rho=265
+new line.line290 geometry=4wire length=0.0833333333 units=mi bus1=289.1.2.3.4 bus2=290.1.2.3.4 Rho=265
+new line.line291 geometry=4wire length=0.0833333333 units=mi bus1=290.1.2.3.4 bus2=291.1.2.3.4 Rho=265
+new line.line292 geometry=4wire length=0.0833333333 units=mi bus1=291.1.2.3.4 bus2=292.1.2.3.4 Rho=265
+new line.line293 geometry=4wire length=0.0833333333 units=mi bus1=292.1.2.3.4 bus2=293.1.2.3.4 Rho=265
+new line.line294 geometry=4wire length=0.0833333333 units=mi bus1=293.1.2.3.4 bus2=294.1.2.3.4 Rho=265
+new line.line295 geometry=4wire length=0.0833333333 units=mi bus1=294.1.2.3.4 bus2=295.1.2.3.4 Rho=265
+new line.line296 geometry=4wire length=0.0833333333 units=mi bus1=295.1.2.3.4 bus2=296.1.2.3.4 Rho=265
+new line.line297 geometry=4wire length=0.0833333333 units=mi bus1=296.1.2.3.4 bus2=297.1.2.3.4 Rho=265
+new line.line298 geometry=4wire length=0.0833333333 units=mi bus1=297.1.2.3.4 bus2=298.1.2.3.4 Rho=265
+new line.line299 geometry=4wire length=0.0833333333 units=mi bus1=298.1.2.3.4 bus2=299.1.2.3.4 Rho=265
+new line.line300 geometry=4wire length=0.0833333333 units=mi bus1=299.1.2.3.4 bus2=300.1.2.3.4 Rho=265
+new line.line301 geometry=4wire length=0.0833333333 units=mi bus1=300.1.2.3.4 bus2=301.1.2.3.4 Rho=265
+new line.line302 geometry=4wire length=0.0833333333 units=mi bus1=301.1.2.3.4 bus2=302.1.2.3.4 Rho=265
+new line.line303 geometry=4wire length=0.0833333333 units=mi bus1=302.1.2.3.4 bus2=303.1.2.3.4 Rho=265
+new line.line304 geometry=4wire length=0.0833333333 units=mi bus1=303.1.2.3.4 bus2=304.1.2.3.4 Rho=265
+new line.line305 geometry=4wire length=0.0833333333 units=mi bus1=304.1.2.3.4 bus2=305.1.2.3.4 Rho=265
+new line.line306 geometry=4wire length=0.0833333333 units=mi bus1=305.1.2.3.4 bus2=306.1.2.3.4 Rho=265
+new line.line307 geometry=4wire length=0.0833333333 units=mi bus1=306.1.2.3.4 bus2=307.1.2.3.4 Rho=265
+new line.line308 geometry=4wire length=0.0833333333 units=mi bus1=307.1.2.3.4 bus2=308.1.2.3.4 Rho=265
+new line.line309 geometry=4wire length=0.0833333333 units=mi bus1=308.1.2.3.4 bus2=309.1.2.3.4 Rho=265
+new line.line310 geometry=4wire length=0.0833333333 units=mi bus1=309.1.2.3.4 bus2=310.1.2.3.4 Rho=265
+new line.line311 geometry=4wire length=0.0833333333 units=mi bus1=310.1.2.3.4 bus2=311.1.2.3.4 Rho=265
+new line.line312 geometry=4wire length=0.0833333333 units=mi bus1=311.1.2.3.4 bus2=312.1.2.3.4 Rho=265
+new line.line313 geometry=4wire length=0.0833333333 units=mi bus1=312.1.2.3.4 bus2=313.1.2.3.4 Rho=265
+new line.line314 geometry=4wire length=0.0833333333 units=mi bus1=313.1.2.3.4 bus2=314.1.2.3.4 Rho=265
+new line.line315 geometry=4wire length=0.0833333333 units=mi bus1=314.1.2.3.4 bus2=315.1.2.3.4 Rho=265
+new line.line316 geometry=4wire length=0.0833333333 units=mi bus1=315.1.2.3.4 bus2=316.1.2.3.4 Rho=265
+new line.line317 geometry=4wire length=0.0833333333 units=mi bus1=316.1.2.3.4 bus2=317.1.2.3.4 Rho=265
+new line.line318 geometry=4wire length=0.0833333333 units=mi bus1=317.1.2.3.4 bus2=318.1.2.3.4 Rho=265
+new line.line319 geometry=4wire length=0.0833333333 units=mi bus1=318.1.2.3.4 bus2=319.1.2.3.4 Rho=265
+new line.line320 geometry=4wire length=0.0833333333 units=mi bus1=319.1.2.3.4 bus2=320.1.2.3.4 Rho=265
+new line.line321 geometry=4wire length=0.0833333333 units=mi bus1=320.1.2.3.4 bus2=321.1.2.3.4 Rho=265
+new line.line322 geometry=4wire length=0.0833333333 units=mi bus1=321.1.2.3.4 bus2=322.1.2.3.4 Rho=265
+new line.line323 geometry=4wire length=0.0833333333 units=mi bus1=322.1.2.3.4 bus2=323.1.2.3.4 Rho=265
+new line.line324 geometry=4wire length=0.0833333333 units=mi bus1=323.1.2.3.4 bus2=324.1.2.3.4 Rho=265
+new line.line325 geometry=4wire length=0.0833333333 units=mi bus1=324.1.2.3.4 bus2=325.1.2.3.4 Rho=265
+new line.line326 geometry=4wire length=0.0833333333 units=mi bus1=325.1.2.3.4 bus2=326.1.2.3.4 Rho=265
+new line.line327 geometry=4wire length=0.0833333333 units=mi bus1=326.1.2.3.4 bus2=327.1.2.3.4 Rho=265
+new line.line328 geometry=4wire length=0.0833333333 units=mi bus1=327.1.2.3.4 bus2=328.1.2.3.4 Rho=265
+new line.line329 geometry=4wire length=0.0833333333 units=mi bus1=328.1.2.3.4 bus2=329.1.2.3.4 Rho=265
+new line.line330 geometry=4wire length=0.0833333333 units=mi bus1=329.1.2.3.4 bus2=330.1.2.3.4 Rho=265
+new line.line331 geometry=4wire length=0.0833333333 units=mi bus1=330.1.2.3.4 bus2=331.1.2.3.4 Rho=265
+new line.line332 geometry=4wire length=0.0833333333 units=mi bus1=331.1.2.3.4 bus2=332.1.2.3.4 Rho=265
+new line.line333 geometry=4wire length=0.0833333333 units=mi bus1=332.1.2.3.4 bus2=333.1.2.3.4 Rho=265
+new line.line334 geometry=4wire length=0.0833333333 units=mi bus1=333.1.2.3.4 bus2=334.1.2.3.4 Rho=265
+new line.line335 geometry=4wire length=0.0833333333 units=mi bus1=334.1.2.3.4 bus2=335.1.2.3.4 Rho=265
+new line.line336 geometry=4wire length=0.0833333333 units=mi bus1=335.1.2.3.4 bus2=336.1.2.3.4 Rho=265
+new line.line337 geometry=4wire length=0.0833333333 units=mi bus1=336.1.2.3.4 bus2=337.1.2.3.4 Rho=265
+new line.line338 geometry=4wire length=0.0833333333 units=mi bus1=337.1.2.3.4 bus2=338.1.2.3.4 Rho=265
+new line.line339 geometry=4wire length=0.0833333333 units=mi bus1=338.1.2.3.4 bus2=339.1.2.3.4 Rho=265
+new line.line340 geometry=4wire length=0.0833333333 units=mi bus1=339.1.2.3.4 bus2=340.1.2.3.4 Rho=265
+new line.line341 geometry=4wire length=0.0833333333 units=mi bus1=340.1.2.3.4 bus2=341.1.2.3.4 Rho=265
+new line.line342 geometry=4wire length=0.0833333333 units=mi bus1=341.1.2.3.4 bus2=342.1.2.3.4 Rho=265
+new line.line343 geometry=4wire length=0.0833333333 units=mi bus1=342.1.2.3.4 bus2=343.1.2.3.4 Rho=265
+new line.line344 geometry=4wire length=0.0833333333 units=mi bus1=343.1.2.3.4 bus2=344.1.2.3.4 Rho=265
+new line.line345 geometry=4wire length=0.0833333333 units=mi bus1=344.1.2.3.4 bus2=345.1.2.3.4 Rho=265
+new line.line346 geometry=4wire length=0.0833333333 units=mi bus1=345.1.2.3.4 bus2=346.1.2.3.4 Rho=265
+new line.line347 geometry=4wire length=0.0833333333 units=mi bus1=346.1.2.3.4 bus2=347.1.2.3.4 Rho=265
+new line.line348 geometry=4wire length=0.0833333333 units=mi bus1=347.1.2.3.4 bus2=348.1.2.3.4 Rho=265
+new line.line349 geometry=4wire length=0.0833333333 units=mi bus1=348.1.2.3.4 bus2=349.1.2.3.4 Rho=265
+new line.line350 geometry=4wire length=0.0833333333 units=mi bus1=349.1.2.3.4 bus2=350.1.2.3.4 Rho=265
+new line.line351 geometry=4wire length=0.0833333333 units=mi bus1=350.1.2.3.4 bus2=351.1.2.3.4 Rho=265
+new line.line352 geometry=4wire length=0.0833333333 units=mi bus1=351.1.2.3.4 bus2=352.1.2.3.4 Rho=265
+new line.line353 geometry=4wire length=0.0833333333 units=mi bus1=352.1.2.3.4 bus2=353.1.2.3.4 Rho=265
+new line.line354 geometry=4wire length=0.0833333333 units=mi bus1=353.1.2.3.4 bus2=354.1.2.3.4 Rho=265
+new line.line355 geometry=4wire length=0.0833333333 units=mi bus1=354.1.2.3.4 bus2=355.1.2.3.4 Rho=265
+new line.line356 geometry=4wire length=0.0833333333 units=mi bus1=355.1.2.3.4 bus2=356.1.2.3.4 Rho=265
+new line.line357 geometry=4wire length=0.0833333333 units=mi bus1=356.1.2.3.4 bus2=357.1.2.3.4 Rho=265
+new line.line358 geometry=4wire length=0.0833333333 units=mi bus1=357.1.2.3.4 bus2=358.1.2.3.4 Rho=265
+new line.line359 geometry=4wire length=0.0833333333 units=mi bus1=358.1.2.3.4 bus2=359.1.2.3.4 Rho=265
+New Reactor.Ground1 Phases=1 bus1=1.4 bus2=1.0 R=02.0000 X=0
+New Reactor.Ground2 Phases=1 bus1=2.4 bus2=2.0 R=30.0000 X=0
+New Reactor.Ground3 Phases=1 bus1=3.4 bus2=3.0 R=30.0000 X=0
+New Reactor.Ground4 Phases=1 bus1=4.4 bus2=4.0 R=30.0000 X=0
+New Reactor.Ground5 Phases=1 bus1=5.4 bus2=5.0 R=30.0000 X=0
+New Reactor.Ground6 Phases=1 bus1=6.4 bus2=6.0 R=30.0000 X=0
+New Reactor.Ground7 Phases=1 bus1=7.4 bus2=7.0 R=30.0000 X=0
+New Reactor.Ground8 Phases=1 bus1=8.4 bus2=8.0 R=30.0000 X=0
+New Reactor.Ground9 Phases=1 bus1=9.4 bus2=9.0 R=30.0000 X=0
+New Reactor.Ground10 Phases=1 bus1=10.4 bus2=10.0 R=30.0000 X=0
+New Reactor.Ground11 Phases=1 bus1=11.4 bus2=11.0 R=30.0000 X=0
+New Reactor.Ground12 Phases=1 bus1=12.4 bus2=12.0 R=30.0000 X=0
+New Reactor.Ground13 Phases=1 bus1=13.4 bus2=13.0 R=30.0000 X=0
+New Reactor.Ground14 Phases=1 bus1=14.4 bus2=14.0 R=30.0000 X=0
+New Reactor.Ground15 Phases=1 bus1=15.4 bus2=15.0 R=30.0000 X=0
+New Reactor.Ground16 Phases=1 bus1=16.4 bus2=16.0 R=30.0000 X=0
+New Reactor.Ground17 Phases=1 bus1=17.4 bus2=17.0 R=30.0000 X=0
+New Reactor.Ground18 Phases=1 bus1=18.4 bus2=18.0 R=30.0000 X=0
+New Reactor.Ground19 Phases=1 bus1=19.4 bus2=19.0 R=30.0000 X=0
+New Reactor.Ground20 Phases=1 bus1=20.4 bus2=20.0 R=30.0000 X=0
+New Reactor.Ground21 Phases=1 bus1=21.4 bus2=21.0 R=30.0000 X=0
+New Reactor.Ground22 Phases=1 bus1=22.4 bus2=22.0 R=30.0000 X=0
+New Reactor.Ground23 Phases=1 bus1=23.4 bus2=23.0 R=30.0000 X=0
+New Reactor.Ground24 Phases=1 bus1=24.4 bus2=24.0 R=30.0000 X=0
+New Reactor.Ground25 Phases=1 bus1=25.4 bus2=25.0 R=30.0000 X=0
+New Reactor.Ground26 Phases=1 bus1=26.4 bus2=26.0 R=30.0000 X=0
+New Reactor.Ground27 Phases=1 bus1=27.4 bus2=27.0 R=30.0000 X=0
+New Reactor.Ground28 Phases=1 bus1=28.4 bus2=28.0 R=30.0000 X=0
+New Reactor.Ground29 Phases=1 bus1=29.4 bus2=29.0 R=30.0000 X=0
+New Reactor.Ground30 Phases=1 bus1=30.4 bus2=30.0 R=30.0000 X=0
+New Reactor.Ground31 Phases=1 bus1=31.4 bus2=31.0 R=30.0000 X=0
+New Reactor.Ground32 Phases=1 bus1=32.4 bus2=32.0 R=30.0000 X=0
+New Reactor.Ground33 Phases=1 bus1=33.4 bus2=33.0 R=30.0000 X=0
+New Reactor.Ground34 Phases=1 bus1=34.4 bus2=34.0 R=30.0000 X=0
+New Reactor.Ground35 Phases=1 bus1=35.4 bus2=35.0 R=30.0000 X=0
+New Reactor.Ground36 Phases=1 bus1=36.4 bus2=36.0 R=30.0000 X=0
+New Reactor.Ground37 Phases=1 bus1=37.4 bus2=37.0 R=30.0000 X=0
+New Reactor.Ground38 Phases=1 bus1=38.4 bus2=38.0 R=30.0000 X=0
+New Reactor.Ground39 Phases=1 bus1=39.4 bus2=39.0 R=30.0000 X=0
+New Reactor.Ground40 Phases=1 bus1=40.4 bus2=40.0 R=30.0000 X=0
+New Reactor.Ground41 Phases=1 bus1=41.4 bus2=41.0 R=30.0000 X=0
+New Reactor.Ground42 Phases=1 bus1=42.4 bus2=42.0 R=30.0000 X=0
+New Reactor.Ground43 Phases=1 bus1=43.4 bus2=43.0 R=30.0000 X=0
+New Reactor.Ground44 Phases=1 bus1=44.4 bus2=44.0 R=30.0000 X=0
+New Reactor.Ground45 Phases=1 bus1=45.4 bus2=45.0 R=30.0000 X=0
+New Reactor.Ground46 Phases=1 bus1=46.4 bus2=46.0 R=30.0000 X=0
+New Reactor.Ground47 Phases=1 bus1=47.4 bus2=47.0 R=30.0000 X=0
+New Reactor.Ground48 Phases=1 bus1=48.4 bus2=48.0 R=30.0000 X=0
+New Reactor.Ground49 Phases=1 bus1=49.4 bus2=49.0 R=30.0000 X=0
+New Reactor.Ground50 Phases=1 bus1=50.4 bus2=50.0 R=30.0000 X=0
+New Reactor.Ground51 Phases=1 bus1=51.4 bus2=51.0 R=30.0000 X=0
+New Reactor.Ground52 Phases=1 bus1=52.4 bus2=52.0 R=30.0000 X=0
+New Reactor.Ground53 Phases=1 bus1=53.4 bus2=53.0 R=30.0000 X=0
+New Reactor.Ground54 Phases=1 bus1=54.4 bus2=54.0 R=30.0000 X=0
+New Reactor.Ground55 Phases=1 bus1=55.4 bus2=55.0 R=30.0000 X=0
+New Reactor.Ground56 Phases=1 bus1=56.4 bus2=56.0 R=30.0000 X=0
+New Reactor.Ground57 Phases=1 bus1=57.4 bus2=57.0 R=30.0000 X=0
+New Reactor.Ground58 Phases=1 bus1=58.4 bus2=58.0 R=30.0000 X=0
+New Reactor.Ground59 Phases=1 bus1=59.4 bus2=59.0 R=30.0000 X=0
+New Reactor.Ground60 Phases=1 bus1=60.4 bus2=60.0 R=30.0000 X=0
+New Reactor.Ground61 Phases=1 bus1=61.4 bus2=61.0 R=30.0000 X=0
+New Reactor.Ground62 Phases=1 bus1=62.4 bus2=62.0 R=30.0000 X=0
+New Reactor.Ground63 Phases=1 bus1=63.4 bus2=63.0 R=30.0000 X=0
+New Reactor.Ground64 Phases=1 bus1=64.4 bus2=64.0 R=30.0000 X=0
+New Reactor.Ground65 Phases=1 bus1=65.4 bus2=65.0 R=30.0000 X=0
+New Reactor.Ground66 Phases=1 bus1=66.4 bus2=66.0 R=30.0000 X=0
+New Reactor.Ground67 Phases=1 bus1=67.4 bus2=67.0 R=30.0000 X=0
+New Reactor.Ground68 Phases=1 bus1=68.4 bus2=68.0 R=30.0000 X=0
+New Reactor.Ground69 Phases=1 bus1=69.4 bus2=69.0 R=30.0000 X=0
+New Reactor.Ground70 Phases=1 bus1=70.4 bus2=70.0 R=30.0000 X=0
+New Reactor.Ground71 Phases=1 bus1=71.4 bus2=71.0 R=30.0000 X=0
+New Reactor.Ground72 Phases=1 bus1=72.4 bus2=72.0 R=30.0000 X=0
+New Reactor.Ground73 Phases=1 bus1=73.4 bus2=73.0 R=30.0000 X=0
+New Reactor.Ground74 Phases=1 bus1=74.4 bus2=74.0 R=30.0000 X=0
+New Reactor.Ground75 Phases=1 bus1=75.4 bus2=75.0 R=30.0000 X=0
+New Reactor.Ground76 Phases=1 bus1=76.4 bus2=76.0 R=30.0000 X=0
+New Reactor.Ground77 Phases=1 bus1=77.4 bus2=77.0 R=30.0000 X=0
+New Reactor.Ground78 Phases=1 bus1=78.4 bus2=78.0 R=30.0000 X=0
+New Reactor.Ground79 Phases=1 bus1=79.4 bus2=79.0 R=30.0000 X=0
+New Reactor.Ground80 Phases=1 bus1=80.4 bus2=80.0 R=30.0000 X=0
+New Reactor.Ground81 Phases=1 bus1=81.4 bus2=81.0 R=30.0000 X=0
+New Reactor.Ground82 Phases=1 bus1=82.4 bus2=82.0 R=30.0000 X=0
+New Reactor.Ground83 Phases=1 bus1=83.4 bus2=83.0 R=30.0000 X=0
+New Reactor.Ground84 Phases=1 bus1=84.4 bus2=84.0 R=30.0000 X=0
+New Reactor.Ground85 Phases=1 bus1=85.4 bus2=85.0 R=30.0000 X=0
+New Reactor.Ground86 Phases=1 bus1=86.4 bus2=86.0 R=30.0000 X=0
+New Reactor.Ground87 Phases=1 bus1=87.4 bus2=87.0 R=30.0000 X=0
+New Reactor.Ground88 Phases=1 bus1=88.4 bus2=88.0 R=30.0000 X=0
+New Reactor.Ground89 Phases=1 bus1=89.4 bus2=89.0 R=30.0000 X=0
+New Reactor.Ground90 Phases=1 bus1=90.4 bus2=90.0 R=30.0000 X=0
+New Reactor.Ground91 Phases=1 bus1=91.4 bus2=91.0 R=30.0000 X=0
+New Reactor.Ground92 Phases=1 bus1=92.4 bus2=92.0 R=30.0000 X=0
+New Reactor.Ground93 Phases=1 bus1=93.4 bus2=93.0 R=30.0000 X=0
+New Reactor.Ground94 Phases=1 bus1=94.4 bus2=94.0 R=30.0000 X=0
+New Reactor.Ground95 Phases=1 bus1=95.4 bus2=95.0 R=30.0000 X=0
+New Reactor.Ground96 Phases=1 bus1=96.4 bus2=96.0 R=30.0000 X=0
+New Reactor.Ground97 Phases=1 bus1=97.4 bus2=97.0 R=30.0000 X=0
+New Reactor.Ground98 Phases=1 bus1=98.4 bus2=98.0 R=30.0000 X=0
+New Reactor.Ground99 Phases=1 bus1=99.4 bus2=99.0 R=30.0000 X=0
+New Reactor.Ground100 Phases=1 bus1=100.4 bus2=100.0 R=30.0000 X=0
+New Reactor.Ground101 Phases=1 bus1=101.4 bus2=101.0 R=30.0000 X=0
+New Reactor.Ground102 Phases=1 bus1=102.4 bus2=102.0 R=30.0000 X=0
+New Reactor.Ground103 Phases=1 bus1=103.4 bus2=103.0 R=30.0000 X=0
+New Reactor.Ground104 Phases=1 bus1=104.4 bus2=104.0 R=30.0000 X=0
+New Reactor.Ground105 Phases=1 bus1=105.4 bus2=105.0 R=30.0000 X=0
+New Reactor.Ground106 Phases=1 bus1=106.4 bus2=106.0 R=30.0000 X=0
+New Reactor.Ground107 Phases=1 bus1=107.4 bus2=107.0 R=30.0000 X=0
+New Reactor.Ground108 Phases=1 bus1=108.4 bus2=108.0 R=30.0000 X=0
+New Reactor.Ground109 Phases=1 bus1=109.4 bus2=109.0 R=30.0000 X=0
+New Reactor.Ground110 Phases=1 bus1=110.4 bus2=110.0 R=30.0000 X=0
+New Reactor.Ground111 Phases=1 bus1=111.4 bus2=111.0 R=30.0000 X=0
+New Reactor.Ground112 Phases=1 bus1=112.4 bus2=112.0 R=30.0000 X=0
+New Reactor.Ground113 Phases=1 bus1=113.4 bus2=113.0 R=30.0000 X=0
+New Reactor.Ground114 Phases=1 bus1=114.4 bus2=114.0 R=30.0000 X=0
+New Reactor.Ground115 Phases=1 bus1=115.4 bus2=115.0 R=30.0000 X=0
+New Reactor.Ground116 Phases=1 bus1=116.4 bus2=116.0 R=30.0000 X=0
+New Reactor.Ground117 Phases=1 bus1=117.4 bus2=117.0 R=30.0000 X=0
+New Reactor.Ground118 Phases=1 bus1=118.4 bus2=118.0 R=30.0000 X=0
+New Reactor.Ground119 Phases=1 bus1=119.4 bus2=119.0 R=30.0000 X=0
+New Reactor.Ground120 Phases=1 bus1=120.4 bus2=120.0 R=30.0000 X=0
+New Reactor.Ground121 Phases=1 bus1=121.4 bus2=121.0 R=30.0000 X=0
+New Reactor.Ground122 Phases=1 bus1=122.4 bus2=122.0 R=30.0000 X=0
+New Reactor.Ground123 Phases=1 bus1=123.4 bus2=123.0 R=30.0000 X=0
+New Reactor.Ground124 Phases=1 bus1=124.4 bus2=124.0 R=30.0000 X=0
+New Reactor.Ground125 Phases=1 bus1=125.4 bus2=125.0 R=30.0000 X=0
+New Reactor.Ground126 Phases=1 bus1=126.4 bus2=126.0 R=30.0000 X=0
+New Reactor.Ground127 Phases=1 bus1=127.4 bus2=127.0 R=30.0000 X=0
+New Reactor.Ground128 Phases=1 bus1=128.4 bus2=128.0 R=30.0000 X=0
+New Reactor.Ground129 Phases=1 bus1=129.4 bus2=129.0 R=30.0000 X=0
+New Reactor.Ground130 Phases=1 bus1=130.4 bus2=130.0 R=30.0000 X=0
+New Reactor.Ground131 Phases=1 bus1=131.4 bus2=131.0 R=30.0000 X=0
+New Reactor.Ground132 Phases=1 bus1=132.4 bus2=132.0 R=30.0000 X=0
+New Reactor.Ground133 Phases=1 bus1=133.4 bus2=133.0 R=30.0000 X=0
+New Reactor.Ground134 Phases=1 bus1=134.4 bus2=134.0 R=30.0000 X=0
+New Reactor.Ground135 Phases=1 bus1=135.4 bus2=135.0 R=30.0000 X=0
+New Reactor.Ground136 Phases=1 bus1=136.4 bus2=136.0 R=30.0000 X=0
+New Reactor.Ground137 Phases=1 bus1=137.4 bus2=137.0 R=30.0000 X=0
+New Reactor.Ground138 Phases=1 bus1=138.4 bus2=138.0 R=30.0000 X=0
+New Reactor.Ground139 Phases=1 bus1=139.4 bus2=139.0 R=30.0000 X=0
+New Reactor.Ground140 Phases=1 bus1=140.4 bus2=140.0 R=30.0000 X=0
+New Reactor.Ground141 Phases=1 bus1=141.4 bus2=141.0 R=30.0000 X=0
+New Reactor.Ground142 Phases=1 bus1=142.4 bus2=142.0 R=30.0000 X=0
+New Reactor.Ground143 Phases=1 bus1=143.4 bus2=143.0 R=30.0000 X=0
+New Reactor.Ground144 Phases=1 bus1=144.4 bus2=144.0 R=30.0000 X=0
+New Reactor.Ground145 Phases=1 bus1=145.4 bus2=145.0 R=30.0000 X=0
+New Reactor.Ground146 Phases=1 bus1=146.4 bus2=146.0 R=30.0000 X=0
+New Reactor.Ground147 Phases=1 bus1=147.4 bus2=147.0 R=30.0000 X=0
+New Reactor.Ground148 Phases=1 bus1=148.4 bus2=148.0 R=30.0000 X=0
+New Reactor.Ground149 Phases=1 bus1=149.4 bus2=149.0 R=30.0000 X=0
+New Reactor.Ground150 Phases=1 bus1=150.4 bus2=150.0 R=30.0000 X=0
+New Reactor.Ground151 Phases=1 bus1=151.4 bus2=151.0 R=30.0000 X=0
+New Reactor.Ground152 Phases=1 bus1=152.4 bus2=152.0 R=30.0000 X=0
+New Reactor.Ground153 Phases=1 bus1=153.4 bus2=153.0 R=30.0000 X=0
+New Reactor.Ground154 Phases=1 bus1=154.4 bus2=154.0 R=30.0000 X=0
+New Reactor.Ground155 Phases=1 bus1=155.4 bus2=155.0 R=30.0000 X=0
+New Reactor.Ground156 Phases=1 bus1=156.4 bus2=156.0 R=30.0000 X=0
+New Reactor.Ground157 Phases=1 bus1=157.4 bus2=157.0 R=30.0000 X=0
+New Reactor.Ground158 Phases=1 bus1=158.4 bus2=158.0 R=30.0000 X=0
+New Reactor.Ground159 Phases=1 bus1=159.4 bus2=159.0 R=30.0000 X=0
+New Reactor.Ground160 Phases=1 bus1=160.4 bus2=160.0 R=30.0000 X=0
+New Reactor.Ground161 Phases=1 bus1=161.4 bus2=161.0 R=30.0000 X=0
+New Reactor.Ground162 Phases=1 bus1=162.4 bus2=162.0 R=30.0000 X=0
+New Reactor.Ground163 Phases=1 bus1=163.4 bus2=163.0 R=30.0000 X=0
+New Reactor.Ground164 Phases=1 bus1=164.4 bus2=164.0 R=30.0000 X=0
+New Reactor.Ground165 Phases=1 bus1=165.4 bus2=165.0 R=30.0000 X=0
+New Reactor.Ground166 Phases=1 bus1=166.4 bus2=166.0 R=30.0000 X=0
+New Reactor.Ground167 Phases=1 bus1=167.4 bus2=167.0 R=30.0000 X=0
+New Reactor.Ground168 Phases=1 bus1=168.4 bus2=168.0 R=30.0000 X=0
+New Reactor.Ground169 Phases=1 bus1=169.4 bus2=169.0 R=30.0000 X=0
+New Reactor.Ground170 Phases=1 bus1=170.4 bus2=170.0 R=30.0000 X=0
+New Reactor.Ground171 Phases=1 bus1=171.4 bus2=171.0 R=30.0000 X=0
+New Reactor.Ground172 Phases=1 bus1=172.4 bus2=172.0 R=30.0000 X=0
+New Reactor.Ground173 Phases=1 bus1=173.4 bus2=173.0 R=30.0000 X=0
+New Reactor.Ground174 Phases=1 bus1=174.4 bus2=174.0 R=30.0000 X=0
+New Reactor.Ground175 Phases=1 bus1=175.4 bus2=175.0 R=30.0000 X=0
+New Reactor.Ground176 Phases=1 bus1=176.4 bus2=176.0 R=30.0000 X=0
+New Reactor.Ground177 Phases=1 bus1=177.4 bus2=177.0 R=30.0000 X=0
+New Reactor.Ground178 Phases=1 bus1=178.4 bus2=178.0 R=30.0000 X=0
+New Reactor.Ground179 Phases=1 bus1=179.4 bus2=179.0 R=30.0000 X=0
+New Reactor.Ground180 Phases=1 bus1=180.4 bus2=180.0 R=30.0000 X=0
+New Reactor.Ground181 Phases=1 bus1=181.4 bus2=181.0 R=30.0000 X=0
+New Reactor.Ground182 Phases=1 bus1=182.4 bus2=182.0 R=30.0000 X=0
+New Reactor.Ground183 Phases=1 bus1=183.4 bus2=183.0 R=30.0000 X=0
+New Reactor.Ground184 Phases=1 bus1=184.4 bus2=184.0 R=30.0000 X=0
+New Reactor.Ground185 Phases=1 bus1=185.4 bus2=185.0 R=30.0000 X=0
+New Reactor.Ground186 Phases=1 bus1=186.4 bus2=186.0 R=30.0000 X=0
+New Reactor.Ground187 Phases=1 bus1=187.4 bus2=187.0 R=30.0000 X=0
+New Reactor.Ground188 Phases=1 bus1=188.4 bus2=188.0 R=30.0000 X=0
+New Reactor.Ground189 Phases=1 bus1=189.4 bus2=189.0 R=30.0000 X=0
+New Reactor.Ground190 Phases=1 bus1=190.4 bus2=190.0 R=30.0000 X=0
+New Reactor.Ground191 Phases=1 bus1=191.4 bus2=191.0 R=30.0000 X=0
+New Reactor.Ground192 Phases=1 bus1=192.4 bus2=192.0 R=30.0000 X=0
+New Reactor.Ground193 Phases=1 bus1=193.4 bus2=193.0 R=30.0000 X=0
+New Reactor.Ground194 Phases=1 bus1=194.4 bus2=194.0 R=30.0000 X=0
+New Reactor.Ground195 Phases=1 bus1=195.4 bus2=195.0 R=30.0000 X=0
+New Reactor.Ground196 Phases=1 bus1=196.4 bus2=196.0 R=30.0000 X=0
+New Reactor.Ground197 Phases=1 bus1=197.4 bus2=197.0 R=30.0000 X=0
+New Reactor.Ground198 Phases=1 bus1=198.4 bus2=198.0 R=30.0000 X=0
+New Reactor.Ground199 Phases=1 bus1=199.4 bus2=199.0 R=30.0000 X=0
+New Reactor.Ground200 Phases=1 bus1=200.4 bus2=200.0 R=30.0000 X=0
+New Reactor.Ground201 Phases=1 bus1=201.4 bus2=201.0 R=30.0000 X=0
+New Reactor.Ground202 Phases=1 bus1=202.4 bus2=202.0 R=30.0000 X=0
+New Reactor.Ground203 Phases=1 bus1=203.4 bus2=203.0 R=30.0000 X=0
+New Reactor.Ground204 Phases=1 bus1=204.4 bus2=204.0 R=30.0000 X=0
+New Reactor.Ground205 Phases=1 bus1=205.4 bus2=205.0 R=30.0000 X=0
+New Reactor.Ground206 Phases=1 bus1=206.4 bus2=206.0 R=30.0000 X=0
+New Reactor.Ground207 Phases=1 bus1=207.4 bus2=207.0 R=30.0000 X=0
+New Reactor.Ground208 Phases=1 bus1=208.4 bus2=208.0 R=30.0000 X=0
+New Reactor.Ground209 Phases=1 bus1=209.4 bus2=209.0 R=30.0000 X=0
+New Reactor.Ground210 Phases=1 bus1=210.4 bus2=210.0 R=30.0000 X=0
+New Reactor.Ground211 Phases=1 bus1=211.4 bus2=211.0 R=30.0000 X=0
+New Reactor.Ground212 Phases=1 bus1=212.4 bus2=212.0 R=30.0000 X=0
+New Reactor.Ground213 Phases=1 bus1=213.4 bus2=213.0 R=30.0000 X=0
+New Reactor.Ground214 Phases=1 bus1=214.4 bus2=214.0 R=30.0000 X=0
+New Reactor.Ground215 Phases=1 bus1=215.4 bus2=215.0 R=30.0000 X=0
+New Reactor.Ground216 Phases=1 bus1=216.4 bus2=216.0 R=30.0000 X=0
+New Reactor.Ground217 Phases=1 bus1=217.4 bus2=217.0 R=30.0000 X=0
+New Reactor.Ground218 Phases=1 bus1=218.4 bus2=218.0 R=30.0000 X=0
+New Reactor.Ground219 Phases=1 bus1=219.4 bus2=219.0 R=30.0000 X=0
+New Reactor.Ground220 Phases=1 bus1=220.4 bus2=220.0 R=30.0000 X=0
+New Reactor.Ground221 Phases=1 bus1=221.4 bus2=221.0 R=30.0000 X=0
+New Reactor.Ground222 Phases=1 bus1=222.4 bus2=222.0 R=30.0000 X=0
+New Reactor.Ground223 Phases=1 bus1=223.4 bus2=223.0 R=30.0000 X=0
+New Reactor.Ground224 Phases=1 bus1=224.4 bus2=224.0 R=30.0000 X=0
+New Reactor.Ground225 Phases=1 bus1=225.4 bus2=225.0 R=30.0000 X=0
+New Reactor.Ground226 Phases=1 bus1=226.4 bus2=226.0 R=30.0000 X=0
+New Reactor.Ground227 Phases=1 bus1=227.4 bus2=227.0 R=30.0000 X=0
+New Reactor.Ground228 Phases=1 bus1=228.4 bus2=228.0 R=30.0000 X=0
+New Reactor.Ground229 Phases=1 bus1=229.4 bus2=229.0 R=30.0000 X=0
+New Reactor.Ground230 Phases=1 bus1=230.4 bus2=230.0 R=30.0000 X=0
+New Reactor.Ground231 Phases=1 bus1=231.4 bus2=231.0 R=30.0000 X=0
+New Reactor.Ground232 Phases=1 bus1=232.4 bus2=232.0 R=30.0000 X=0
+New Reactor.Ground233 Phases=1 bus1=233.4 bus2=233.0 R=30.0000 X=0
+New Reactor.Ground234 Phases=1 bus1=234.4 bus2=234.0 R=30.0000 X=0
+New Reactor.Ground235 Phases=1 bus1=235.4 bus2=235.0 R=30.0000 X=0
+New Reactor.Ground236 Phases=1 bus1=236.4 bus2=236.0 R=30.0000 X=0
+New Reactor.Ground237 Phases=1 bus1=237.4 bus2=237.0 R=2.0000 X=0
+New Reactor.Ground238 Phases=1 bus1=238.4 bus2=237.4 R=0.00000001 X=0
+New Reactor.Ground239 Phases=1 bus1=239.4 bus2=239.0 R=50 X=0
+New Reactor.Ground240 Phases=1 bus1=240.4 bus2=240.0 R=50 X=0
+New Reactor.Ground241 Phases=1 bus1=241.4 bus2=241.0 R=50 X=0
+New Reactor.Ground242 Phases=1 bus1=242.4 bus2=242.0 R=50 X=0
+New Reactor.Ground243 Phases=1 bus1=243.4 bus2=243.0 R=50 X=0
+New Reactor.Ground244 Phases=1 bus1=244.4 bus2=244.0 R=50 X=0
+New Reactor.Ground245 Phases=1 bus1=245.4 bus2=245.0 R=50 X=0
+New Reactor.Ground246 Phases=1 bus1=246.4 bus2=246.0 R=50 X=0
+New Reactor.Ground247 Phases=1 bus1=247.4 bus2=247.0 R=50 X=0
+New Reactor.Ground248 Phases=1 bus1=248.4 bus2=248.0 R=50 X=0
+New Reactor.Ground249 Phases=1 bus1=249.4 bus2=249.0 R=50 X=0
+New Reactor.Ground250 Phases=1 bus1=250.4 bus2=250.0 R=50 X=0
+New Reactor.Ground251 Phases=1 bus1=251.4 bus2=251.0 R=50 X=0
+New Reactor.Ground252 Phases=1 bus1=252.4 bus2=252.0 R=50 X=0
+New Reactor.Ground253 Phases=1 bus1=253.4 bus2=253.0 R=50 X=0
+New Reactor.Ground254 Phases=1 bus1=254.4 bus2=254.0 R=50 X=0
+New Reactor.Ground255 Phases=1 bus1=255.4 bus2=255.0 R=50 X=0
+New Reactor.Ground256 Phases=1 bus1=256.4 bus2=256.0 R=50 X=0
+New Reactor.Ground257 Phases=1 bus1=257.4 bus2=257.0 R=50 X=0
+New Reactor.Ground258 Phases=1 bus1=258.4 bus2=258.0 R=50 X=0
+New Reactor.Ground259 Phases=1 bus1=259.4 bus2=259.0 R=50 X=0
+New Reactor.Ground260 Phases=1 bus1=260.4 bus2=260.0 R=50 X=0
+New Reactor.Ground261 Phases=1 bus1=261.4 bus2=261.0 R=50 X=0
+New Reactor.Ground262 Phases=1 bus1=262.4 bus2=262.0 R=50 X=0
+New Reactor.Ground263 Phases=1 bus1=263.4 bus2=263.0 R=50 X=0
+New Reactor.Ground264 Phases=1 bus1=264.4 bus2=264.0 R=50 X=0
+New Reactor.Ground265 Phases=1 bus1=265.4 bus2=265.0 R=50 X=0
+New Reactor.Ground266 Phases=1 bus1=266.4 bus2=266.0 R=50 X=0
+New Reactor.Ground267 Phases=1 bus1=267.4 bus2=267.0 R=50 X=0
+New Reactor.Ground268 Phases=1 bus1=268.4 bus2=268.0 R=50 X=0
+New Reactor.Ground269 Phases=1 bus1=269.4 bus2=269.0 R=50 X=0
+New Reactor.Ground270 Phases=1 bus1=270.4 bus2=270.0 R=50 X=0
+New Reactor.Ground271 Phases=1 bus1=271.4 bus2=271.0 R=50 X=0
+New Reactor.Ground272 Phases=1 bus1=272.4 bus2=272.0 R=50 X=0
+New Reactor.Ground273 Phases=1 bus1=273.4 bus2=273.0 R=50 X=0
+New Reactor.Ground274 Phases=1 bus1=274.4 bus2=274.0 R=50 X=0
+New Reactor.Ground275 Phases=1 bus1=275.4 bus2=275.0 R=50 X=0
+New Reactor.Ground276 Phases=1 bus1=276.4 bus2=276.0 R=50 X=0
+New Reactor.Ground277 Phases=1 bus1=277.4 bus2=277.0 R=50 X=0
+New Reactor.Ground278 Phases=1 bus1=278.4 bus2=278.0 R=50 X=0
+New Reactor.Ground279 Phases=1 bus1=279.4 bus2=279.0 R=50 X=0
+New Reactor.Ground280 Phases=1 bus1=280.4 bus2=280.0 R=50 X=0
+New Reactor.Ground281 Phases=1 bus1=281.4 bus2=281.0 R=50 X=0
+New Reactor.Ground282 Phases=1 bus1=282.4 bus2=282.0 R=50 X=0
+New Reactor.Ground283 Phases=1 bus1=283.4 bus2=283.0 R=50 X=0
+New Reactor.Ground284 Phases=1 bus1=284.4 bus2=284.0 R=50 X=0
+New Reactor.Ground285 Phases=1 bus1=285.4 bus2=285.0 R=50 X=0
+New Reactor.Ground286 Phases=1 bus1=286.4 bus2=286.0 R=50 X=0
+New Reactor.Ground287 Phases=1 bus1=287.4 bus2=287.0 R=50 X=0
+New Reactor.Ground288 Phases=1 bus1=288.4 bus2=288.0 R=50 X=0
+New Reactor.Ground289 Phases=1 bus1=289.4 bus2=289.0 R=50 X=0
+New Reactor.Ground290 Phases=1 bus1=290.4 bus2=290.0 R=50 X=0
+New Reactor.Ground291 Phases=1 bus1=291.4 bus2=291.0 R=50 X=0
+New Reactor.Ground292 Phases=1 bus1=292.4 bus2=292.0 R=50 X=0
+New Reactor.Ground293 Phases=1 bus1=293.4 bus2=293.0 R=50 X=0
+New Reactor.Ground294 Phases=1 bus1=294.4 bus2=294.0 R=50 X=0
+New Reactor.Ground295 Phases=1 bus1=295.4 bus2=295.0 R=50 X=0
+New Reactor.Ground296 Phases=1 bus1=296.4 bus2=296.0 R=50 X=0
+New Reactor.Ground297 Phases=1 bus1=297.4 bus2=297.0 R=50 X=0
+New Reactor.Ground298 Phases=1 bus1=298.4 bus2=298.0 R=50 X=0
+New Reactor.Ground299 Phases=1 bus1=299.4 bus2=299.0 R=50 X=0
+New Reactor.Ground300 Phases=1 bus1=300.4 bus2=300.0 R=50 X=0
+New Reactor.Ground301 Phases=1 bus1=301.4 bus2=301.0 R=50 X=0
+New Reactor.Ground302 Phases=1 bus1=302.4 bus2=302.0 R=50 X=0
+New Reactor.Ground303 Phases=1 bus1=303.4 bus2=303.0 R=50 X=0
+New Reactor.Ground304 Phases=1 bus1=304.4 bus2=304.0 R=50 X=0
+New Reactor.Ground305 Phases=1 bus1=305.4 bus2=305.0 R=50 X=0
+New Reactor.Ground306 Phases=1 bus1=306.4 bus2=306.0 R=50 X=0
+New Reactor.Ground307 Phases=1 bus1=307.4 bus2=307.0 R=50 X=0
+New Reactor.Ground308 Phases=1 bus1=308.4 bus2=308.0 R=50 X=0
+New Reactor.Ground309 Phases=1 bus1=309.4 bus2=309.0 R=50 X=0
+New Reactor.Ground310 Phases=1 bus1=310.4 bus2=310.0 R=50 X=0
+New Reactor.Ground311 Phases=1 bus1=311.4 bus2=311.0 R=50 X=0
+New Reactor.Ground312 Phases=1 bus1=312.4 bus2=312.0 R=50 X=0
+New Reactor.Ground313 Phases=1 bus1=313.4 bus2=313.0 R=50 X=0
+New Reactor.Ground314 Phases=1 bus1=314.4 bus2=314.0 R=50 X=0
+New Reactor.Ground315 Phases=1 bus1=315.4 bus2=315.0 R=50 X=0
+New Reactor.Ground316 Phases=1 bus1=316.4 bus2=316.0 R=50 X=0
+New Reactor.Ground317 Phases=1 bus1=317.4 bus2=317.0 R=50 X=0
+New Reactor.Ground318 Phases=1 bus1=318.4 bus2=318.0 R=50 X=0
+New Reactor.Ground319 Phases=1 bus1=319.4 bus2=319.0 R=50 X=0
+New Reactor.Ground320 Phases=1 bus1=320.4 bus2=320.0 R=50 X=0
+New Reactor.Ground321 Phases=1 bus1=321.4 bus2=321.0 R=50 X=0
+New Reactor.Ground322 Phases=1 bus1=322.4 bus2=322.0 R=50 X=0
+New Reactor.Ground323 Phases=1 bus1=323.4 bus2=323.0 R=50 X=0
+New Reactor.Ground324 Phases=1 bus1=324.4 bus2=324.0 R=50 X=0
+New Reactor.Ground325 Phases=1 bus1=325.4 bus2=325.0 R=50 X=0
+New Reactor.Ground326 Phases=1 bus1=326.4 bus2=326.0 R=50 X=0
+New Reactor.Ground327 Phases=1 bus1=327.4 bus2=327.0 R=50 X=0
+New Reactor.Ground328 Phases=1 bus1=328.4 bus2=328.0 R=50 X=0
+New Reactor.Ground329 Phases=1 bus1=329.4 bus2=329.0 R=50 X=0
+New Reactor.Ground330 Phases=1 bus1=330.4 bus2=330.0 R=50 X=0
+New Reactor.Ground331 Phases=1 bus1=331.4 bus2=331.0 R=50 X=0
+New Reactor.Ground332 Phases=1 bus1=332.4 bus2=332.0 R=50 X=0
+New Reactor.Ground333 Phases=1 bus1=333.4 bus2=333.0 R=50 X=0
+New Reactor.Ground334 Phases=1 bus1=334.4 bus2=334.0 R=50 X=0
+New Reactor.Ground335 Phases=1 bus1=335.4 bus2=335.0 R=50 X=0
+New Reactor.Ground336 Phases=1 bus1=336.4 bus2=336.0 R=50 X=0
+New Reactor.Ground337 Phases=1 bus1=337.4 bus2=337.0 R=50 X=0
+New Reactor.Ground338 Phases=1 bus1=338.4 bus2=338.0 R=50 X=0
+New Reactor.Ground339 Phases=1 bus1=339.4 bus2=339.0 R=50 X=0
+New Reactor.Ground340 Phases=1 bus1=340.4 bus2=340.0 R=50 X=0
+New Reactor.Ground341 Phases=1 bus1=341.4 bus2=341.0 R=50 X=0
+New Reactor.Ground342 Phases=1 bus1=342.4 bus2=342.0 R=50 X=0
+New Reactor.Ground343 Phases=1 bus1=343.4 bus2=343.0 R=50 X=0
+New Reactor.Ground344 Phases=1 bus1=344.4 bus2=344.0 R=50 X=0
+New Reactor.Ground345 Phases=1 bus1=345.4 bus2=345.0 R=50 X=0
+New Reactor.Ground346 Phases=1 bus1=346.4 bus2=346.0 R=50 X=0
+New Reactor.Ground347 Phases=1 bus1=347.4 bus2=347.0 R=50 X=0
+New Reactor.Ground348 Phases=1 bus1=348.4 bus2=348.0 R=50 X=0
+New Reactor.Ground349 Phases=1 bus1=349.4 bus2=349.0 R=50 X=0
+New Reactor.Ground350 Phases=1 bus1=350.4 bus2=350.0 R=50 X=0
+New Reactor.Ground351 Phases=1 bus1=351.4 bus2=351.0 R=50 X=0
+New Reactor.Ground352 Phases=1 bus1=352.4 bus2=352.0 R=50 X=0
+New Reactor.Ground353 Phases=1 bus1=353.4 bus2=353.0 R=50 X=0
+New Reactor.Ground354 Phases=1 bus1=354.4 bus2=354.0 R=50 X=0
+New Reactor.Ground355 Phases=1 bus1=355.4 bus2=355.0 R=50 X=0
+New Reactor.Ground356 Phases=1 bus1=356.4 bus2=356.0 R=50 X=0
+New Reactor.Ground357 Phases=1 bus1=357.4 bus2=357.0 R=50 X=0
+New Reactor.Ground358 Phases=1 bus1=358.4 bus2=358.0 R=50 X=0
+New Reactor.Ground359 Phases=1 bus1=359.4 bus2=359.0 R=50 X=0
+set	voltagebases=[115	12]											
+calcvoltagebases	!	****	let	DSS	compute	voltage	bases						
+New	Fault.faseA	Phases=1	Bus1=237.1	Bus2=237.4									
+solve	!	Various	reports	...									
+show	voltages	LN	Nodes										
+show	currents	resid=yes	elements										
+								
